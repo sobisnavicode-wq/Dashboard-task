@@ -1,0 +1,205 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --primary: #6366f1;
+  --primary-dark: #4f46e5;
+  --bg: #f5f6fb;
+  --surface: #ffffff;
+  --text: #1f2233;
+  --muted: #6b7280;
+  --border: #e5e7eb;
+  --success: #bbf7d0;
+  --warn: #fde68a;
+  --danger: #fecaca;
+}
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+}
+a { color: var(--primary); text-decoration: none; }
+button { font-family: inherit; cursor: pointer; border: none; }
+input, select, textarea {
+  font-family: inherit;
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: #fff;
+  font-size: 14px;
+}
+input:focus, select:focus, textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(99,102,241,0.15);
+}
+.btn {
+  background: var(--primary);
+  color: #fff;
+  padding: 11px 18px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 14px;
+  transition: background .2s, transform .1s;
+}
+.btn:hover { background: var(--primary-dark); }
+.btn:active { transform: scale(.98); }
+.btn-block { width: 100%; }
+.btn-ghost { background: transparent; color: var(--primary); }
+.btn-danger { background: #ef4444; }
+.btn-danger:hover { background: #dc2626; }
+
+/* Auth pages */
+.auth-wrap {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #d946ef 100%);
+}
+.auth-card {
+  background: #fff;
+  padding: 36px;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+}
+.auth-card h1 { font-size: 26px; margin-bottom: 6px; }
+.auth-card .sub { color: var(--muted); font-size: 14px; margin-bottom: 24px; }
+.field { margin-bottom: 14px; }
+.field label {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: .5px;
+  margin-bottom: 6px;
+}
+.auth-foot { text-align: center; margin-top: 16px; font-size: 14px; color: var(--muted); }
+
+/* Dashboard layout */
+.layout { display: flex; min-height: 100vh; }
+.sidebar {
+  width: 70px;
+  background: var(--primary);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 0;
+  gap: 18px;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+}
+.sidebar a, .sidebar button {
+  color: #fff;
+  background: transparent;
+  padding: 10px;
+  border-radius: 8px;
+  display: flex;
+  transition: background .2s;
+}
+.sidebar a:hover, .sidebar button:hover { background: rgba(255,255,255,0.2); }
+.sidebar a.active { background: rgba(255,255,255,0.25); }
+.main { flex: 1; padding: 28px; max-width: 1200px; margin: 0 auto; width: 100%; }
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 22px;
+}
+.topbar h1 { font-size: 28px; }
+.user-chip {
+  display: flex; align-items: center; gap: 8px;
+  background: #fff; padding: 6px 14px; border-radius: 999px;
+  font-size: 14px; box-shadow: 0 2px 8px rgba(0,0,0,.05);
+}
+
+.controls {
+  display: flex; gap: 10px; align-items: center; margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+.controls .filter-btn {
+  background: var(--primary); color: #fff;
+  padding: 10px; border-radius: 8px; display: flex;
+}
+.count { margin-left: auto; color: var(--primary); font-weight: 600; }
+
+.panel {
+  background: #fff; padding: 20px; border-radius: 12px;
+  margin-bottom: 20px; box-shadow: 0 2px 12px rgba(0,0,0,.04);
+}
+.panel h3 { text-align: center; color: var(--primary); margin-bottom: 12px; }
+.panel-row { display: flex; gap: 12px; flex-wrap: wrap; }
+.panel-row > * { flex: 1; min-width: 140px; }
+
+.task-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 16px;
+}
+.task-card {
+  background: #fff; border-radius: 12px; padding: 16px;
+  box-shadow: 0 2px 12px rgba(0,0,0,.05);
+  display: flex; flex-direction: column; gap: 10px;
+}
+.task-banner {
+  border-radius: 10px; padding: 18px 14px;
+  position: relative; text-align: center;
+  font-size: 18px; font-weight: 700; color: #14532d;
+}
+.task-banner.p0 { background: var(--warn); color: #78350f; }
+.task-banner.p1 { background: var(--success); color: #14532d; }
+.task-banner.p2 { background: var(--danger); color: #7f1d1d; }
+.task-banner .pri {
+  position: absolute; top: 8px; right: 10px;
+  font-size: 11px; font-weight: 700;
+}
+.task-desc { font-size: 14px; color: #374151; text-align: center; }
+.dates { display: flex; justify-content: space-between; font-size: 13px; }
+.dates strong { display: block; color: var(--muted); font-weight: 600; font-size: 12px; }
+.task-foot {
+  display: flex; justify-content: space-between; align-items: center;
+  border-top: 1px solid var(--border); padding-top: 10px;
+}
+.status-pill {
+  padding: 4px 12px; border-radius: 6px;
+  font-size: 11px; font-weight: 700; text-transform: uppercase;
+}
+.status-pill.completed { background: #bbf7d0; color: #14532d; }
+.status-pill.pending { background: #fde68a; color: #78350f; }
+.status-pill.in-progress { background: #bfdbfe; color: #1e3a8a; }
+.icon-btns { display: flex; gap: 6px; }
+.icon-btn {
+  background: var(--bg); padding: 6px; border-radius: 6px;
+  color: var(--text); display: flex;
+}
+.icon-btn:hover { background: var(--border); }
+.icon-btn.danger { color: #ef4444; }
+
+.empty {
+  text-align: center; padding: 60px 20px; color: var(--muted);
+}
+.empty a { font-weight: 600; }
+
+.attachment {
+  display: flex; align-items: center; gap: 6px;
+  font-size: 12px; color: var(--primary);
+  background: #eef2ff; padding: 6px 10px; border-radius: 6px;
+}
+
+/* Modal */
+.modal-bg {
+  position: fixed; inset: 0; background: rgba(0,0,0,.5);
+  display: flex; align-items: center; justify-content: center;
+  padding: 20px; z-index: 100;
+}
+.modal {
+  background: #fff; border-radius: 16px; padding: 28px;
+  width: 100%; max-width: 480px; max-height: 90vh; overflow-y: auto;
+}
+.modal h2 { margin-bottom: 20px; }
